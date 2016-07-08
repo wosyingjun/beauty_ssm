@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingjun.ssm.dao.GoodsDao">
+
+
+	<select id="queryAll" resultType="Goods">
+		SELECT *
+		FROM _goods
+		ORDER BY create_time DESC
+		limit #{offset},#{limit}
+	</select>
+
+	<update id="reduceNumber">
+		UPDATE _goods 
+		SET 
+		number = number -1
+		WHERE
+		goods_id = #{goodsId}
+		AND state = 1
+		AND number >0;
+	</update>
+	
+	<!--mybatis调用存储过程-->
+    <select id="bugWithProcedure" statementType="CALLABLE">
+        call execute_buy(
+          #{userId,jdbcType=BIGINT,mode=IN},
+          #{goodsId,jdbcType=BIGINT,mode=IN},
+          #{title,jdbcType=VARCHAR,mode=IN},
+          #{result,jdbcType=INTEGER,mode=OUT}
+        )
+    </select>
+
+</mapper>

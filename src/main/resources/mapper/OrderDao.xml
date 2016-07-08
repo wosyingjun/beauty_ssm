@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingjun.ssm.dao.OrderDao">
+
+
+	<insert id="insertOrder">
+		INSERT INTO
+		_order(user_id,goods_id,title)
+		VALUES
+		(#{userId},#{goodsId},#{title})
+	</insert>
+
+	<select id="queryByUserPhone" resultType="Order">
+		SELECT *
+		FROM
+		_order, _user
+		WHERE
+		_order.user_id=_user.user_id
+		AND
+		_user.user_phone=#{userPhone}
+	</select>
+
+	<select id="queryAll" resultType="Order">
+		SELECT *
+		FROM _order
+		ORDER BY
+		create_time DESC
+		limit #{offset},#{limit}
+	</select>
+
+</mapper>

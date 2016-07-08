@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingjun.ssm.dao.UserDao">
+
+	<select id="queryByPhone" resultType="User">
+		SELECT *
+		FROM _user
+		WHERE 
+		user_phone= #{userPhone} limit 1
+	</select>
+	
+	<select id="queryAll" resultType="User">
+		SELECT *
+		FROM _user
+		ORDER BY create_time DESC
+		limit #{offset},#{limit}
+	</select>
+
+    <!--mybatis调用存储过程-->
+    <select id="bugWithProcedure" statementType="CALLABLE">
+        call execute_buy(
+          #{userId,jdbcType=BIGINT,mode=IN},
+          #{goodsId,jdbcType=BIGINT,mode=IN},
+          #{title,jdbcType=TIMESTAMP,mode=IN},
+          #{result,jdbcType=INTEGER,mode=OUT}
+        )
+    </select>
+    
+    
+   	<update id="addScore">
+		UPDATE _user 
+		SET 
+		score = score + #{add}
+	</update>
+
+</mapper>

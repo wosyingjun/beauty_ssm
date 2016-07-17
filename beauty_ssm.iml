@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8 "?>
+<?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="web" name="Web">
@@ -15,6 +15,17 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-service.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-redis.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-web.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-quartz.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-dao.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -28,9 +39,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.1.3" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.1.3" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />

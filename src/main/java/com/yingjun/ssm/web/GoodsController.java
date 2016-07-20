@@ -1,22 +1,18 @@
 package com.yingjun.ssm.web;
 
-import java.util.List;
-
+import com.yingjun.ssm.dto.BaseResult;
+import com.yingjun.ssm.entity.Goods;
+import com.yingjun.ssm.enums.ResultEnum;
+import com.yingjun.ssm.exception.BizException;
+import com.yingjun.ssm.service.GoodsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import com.yingjun.ssm.dto.BaseResult;
-import com.yingjun.ssm.entity.Goods;
-import com.yingjun.ssm.enums.ResultEnum;
-import com.yingjun.ssm.service.GoodsService;
+import java.util.List;
 
 @Controller
 @RequestMapping("/goods")
@@ -43,15 +39,15 @@ public class GoodsController {
 			@PathVariable("goodsId") Long goodsId){
 		LOG.info("invoke----------/"+goodsId+"/buy userPhone:"+userPhone);
 		if (userPhone == null||goodsId==null) {
-			return new BaseResult<Object>(false, ResultEnum.PARAM_USER.getMsg());
+			return new BaseResult<Object>(false, ResultEnum.INVALID_USER.getMsg());
 		}
 		try {
 			goodsService.buyGoods(userPhone, goodsId, false);
-		}catch (MyException e1) {
-			return new BaseResult<Object>(false, e1.getMessage());
+		}catch (BizException e) {
+			return new BaseResult<Object>(false, e.getMessage());
 		}catch (Exception e) {
 			return new BaseResult<Object>(false, ResultEnum.INNER_ERROR.getMsg());
 		}
-		return new BaseResult<Object>(true, "success");
+		return new BaseResult<Object>(true, null);
 	}
 }

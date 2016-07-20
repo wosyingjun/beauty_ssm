@@ -1,10 +1,8 @@
 package com.yingjun.ssm.service;
 
-import java.util.List;
-
-import org.springframework.cache.annotation.Cacheable;
-
 import com.yingjun.ssm.entity.Goods;
+
+import java.util.List;
 
 public interface GoodsService {
 
@@ -20,7 +18,7 @@ public interface GoodsService {
 	/**
 	 * 商品购买
 	 * 
-	 * @param userId
+	 * @param userPhone
 	 * @param goodsId
 	 * @param useProcedure
 	 *            是否用存储过程提高并发能力

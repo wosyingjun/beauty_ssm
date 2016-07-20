@@ -1,4 +1,4 @@
-####优雅的SSM架构(Spring+SpringMVC+Mybatis）
+#优雅的SSM架构(Spring+SpringMVC+Mybatis）
 github地址：[https://github.com/wosyingjun/beauty_ssm](https://github.com/wosyingjun/beauty_ssm)
 
 - Maven

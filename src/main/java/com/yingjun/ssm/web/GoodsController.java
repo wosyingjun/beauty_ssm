@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yingjun.ssm.dto.BaseResult;
 import com.yingjun.ssm.entity.Goods;
 import com.yingjun.ssm.enums.ResultEnum;
-import com.yingjun.ssm.exception.MyException;
 import com.yingjun.ssm.service.GoodsService;
 
 @Controller

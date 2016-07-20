@@ -1,5 +1,5 @@
 
---需要 MySQL 5.6.5以上的版本
+-- 需要 MySQL 5.6.5以上的版本
 CREATE DATABASE beauty_ssm;
 USE beauty_ssm;
 
@@ -39,13 +39,12 @@ KEY `idx_goods_id`(`goods_id`)
 )ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='订单表';
 
 
---插入初始数据
+-- 插入初始数据
 INSERT INTO 
 	_user(user_name, user_phone, score)
 VALUES
 	('阿坚', 18768128888, 0),
 	('小明', 18968129999, 0);
-
 
 
 INSERT INTO 

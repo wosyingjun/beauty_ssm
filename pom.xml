@@ -25,13 +25,11 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -67,7 +65,7 @@
             <artifactId>quartz</artifactId>
             <version>1.8.5</version>
         </dependency>
-        
+
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>fastjson</artifactId>
@@ -75,7 +73,7 @@
 		</dependency>
         
 		<!--common end -->
-		
+
 		<!--spring start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -131,7 +129,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!--spring end -->
-		
+
 		<!--springmvc 控制层 start -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -169,7 +167,7 @@
 			<version>2.7.4</version>
 		</dependency>
 		<!--springmvc end -->
-		
+
 		<!--mybatis 数据访问层 start -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -178,10 +176,10 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>  
-	        <groupId>com.alibaba</groupId>  
-	        <artifactId>druid</artifactId>  
-	        <version>1.0.20</version>  
+		<dependency>
+	        <groupId>com.alibaba</groupId>
+	        <artifactId>druid</artifactId>
+	        <version>1.0.20</version>
 		</dependency>
 
 		<dependency>
@@ -212,13 +210,13 @@
 			<artifactId>spring-data-redis</artifactId>
 			<version>1.6.4.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.dyuproject.protostuff</groupId>
 			<artifactId>protostuff-core</artifactId>
 			<version>1.0.8</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.dyuproject.protostuff</groupId>
 			<artifactId>protostuff-runtime</artifactId>

@@ -1,18 +1,17 @@
 package com.yingjun.ssm.dao;
 
-import java.util.List;
-
+import com.yingjun.ssm.entity.Order;
 import org.apache.ibatis.annotations.Param;
 
-import com.yingjun.ssm.entity.Order;
+import java.util.List;
 
 public interface OrderDao {
 
 	/**
      * 插入订单明细
      *
-     * @param orderId
      * @param userId
+     * @param goodsId
      * @return
      */
     int insertOrder(@Param("userId") long userId,@Param("goodsId") long goodsId, @Param("title")String title);

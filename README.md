@@ -12,4 +12,4 @@
 - JSP JSTL
 
 ###**架构图：**
-![](http://i.imgur.com/VHYyTM5.png)
+![](http://i.imgur.com/EvH40td.png)

@@ -1,18 +1,15 @@
 package com.yingjun.ssm.service.impl;
 
-import java.util.List;
-
+import com.yingjun.ssm.cache.RedisCache;
+import com.yingjun.ssm.dao.UserDao;
+import com.yingjun.ssm.entity.User;
+import com.yingjun.ssm.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.yingjun.ssm.cache.RedisCache;
-import com.yingjun.ssm.dao.UserDao;
-import com.yingjun.ssm.entity.Goods;
-import com.yingjun.ssm.entity.User;
-import com.yingjun.ssm.service.UserService;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {

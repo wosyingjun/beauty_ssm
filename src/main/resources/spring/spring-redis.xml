@@ -20,6 +20,41 @@
 		<property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
 	</bean>
 
+	<!-- JedisCluster 集群高可用配置 -->
+	<!--<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+		<constructor-arg index="0">
+			<set>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip1}" />
+					<constructor-arg index="1" value="${redis.port1}" type="int" />
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip2}" />
+					<constructor-arg index="1" value="${redis.port2}" type="int" />
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip3}" />
+					<constructor-arg index="1" value="${redis.port3}" type="int" />
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip4}" />
+					<constructor-arg index="1" value="${redis.port4}" type="int" />
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip5}" />
+					<constructor-arg index="1" value="${redis.port5}" type="int" />
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg index="0" value="${redis.ip6}" />
+					<constructor-arg index="1" value="${redis.port6}" type="int" />
+				</bean>
+			</set>
+		</constructor-arg>
+		<constructor-arg index="1" value="2000" type="int"></constructor-arg>
+		<constructor-arg index="2" value="100" type="int"></constructor-arg>
+		<constructor-arg index="3" ref="jedisPoolConfig"></constructor-arg>
+	</bean>-->
+
 	<!--redis Sentinel主从高可用方案配置 -->
 	<!-- <bean id="sentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
 		<property name="master">

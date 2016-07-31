@@ -1,16 +1,5 @@
 package com.yingjun.ssm.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.collections.MapUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.yingjun.ssm.cache.RedisCache;
 import com.yingjun.ssm.dao.GoodsDao;
 import com.yingjun.ssm.dao.OrderDao;
@@ -20,6 +9,16 @@ import com.yingjun.ssm.entity.User;
 import com.yingjun.ssm.enums.ResultEnum;
 import com.yingjun.ssm.exception.BizException;
 import com.yingjun.ssm.service.GoodsService;
+import org.apache.commons.collections.MapUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -38,14 +37,14 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<Goods> getGoodsList(int offset, int limit) {
 		String cache_key = RedisCache.CAHCENAME + "|getGoodsList|" + offset + "|" + limit;
 		List<Goods> result_cache = cache.getListCache(cache_key, Goods.class);
-		if (result_cache == null) {
+		if (result_cache != null) {
+			LOG.info("get cache with key:" + cache_key);
+		} else {
 			// 缓存中没有再去数据库取，并插入缓存（缓存时间为60秒）
 			result_cache = goodsDao.queryAll(offset, limit);
 			cache.putListCacheWithExpireTime(cache_key, result_cache, RedisCache.CAHCETIME);
 			LOG.info("put cache with key:" + cache_key);
 			return result_cache;
-		} else {
-			LOG.info("get cache with key:" + cache_key);
 		}
 		return result_cache;
 	}

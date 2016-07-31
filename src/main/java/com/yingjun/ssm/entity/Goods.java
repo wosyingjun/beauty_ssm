@@ -11,7 +11,7 @@ import java.util.Date;
 public class Goods {
 
 	@Min(900)
-	@Not999 //这个为自定义的验证标签
+	@Not999  //这个为自定义的验证标签
 	private long goodsId;
 	
 	private String title;

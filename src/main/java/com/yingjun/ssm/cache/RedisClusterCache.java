@@ -2,6 +2,7 @@ package com.yingjun.ssm.cache;
 
 import com.yingjun.ssm.util.ProtoStuffSerializerUtil;
 import org.springframework.stereotype.Component;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;

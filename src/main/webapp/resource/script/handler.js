@@ -4,7 +4,7 @@ var handler = {
     //封装相关ajax的url
     URL: {
         goodsBuy: function (goodsId) {
-            return '/beauty_ssm/goods/' + goodsId + '/buy';
+            return '/goods/' + goodsId + '/buy';
         }
     },
     //验证手机号
@@ -48,7 +48,7 @@ var handler = {
 
     goodsBuy: function (goodsId) {
         //执行购买请求
-        $.post(handler.URL.goodsBuy(goodsId), {}, function (result) {
+        $.get(handler.URL.goodsBuy(goodsId), {}, function (result) {
             if (result && result['success']) {
             	alert("购买成功！");
             	window.location.reload();

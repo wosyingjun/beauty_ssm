@@ -1,12 +1,10 @@
 package com.yingjun.ssm.dao;
 
+import com.yingjun.ssm.entity.Goods;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
-import org.springframework.cache.annotation.Cacheable;
-
-import com.yingjun.ssm.entity.Goods;
 
 public interface GoodsDao {
 	 /**

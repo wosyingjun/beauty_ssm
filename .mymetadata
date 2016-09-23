@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="beauty_ssm"
+  id="myeclipse.1471252884086"
+  context-root="/beauty_ssm_0.0.1-SNAPSHOT_${maven.build.timestamp}"
+  j2ee-spec="1.7"
+  archive="beauty_ssm.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

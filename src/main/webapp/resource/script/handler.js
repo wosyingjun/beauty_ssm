@@ -47,6 +47,7 @@ var handler = {
     },
 
     goodsBuy: function (goodsId) {
+    	alert('1');
         //执行购买请求
         $.post(handler.URL.goodsBuy(goodsId), {}, function (result) {
             if (result && result['success']) {

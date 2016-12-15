@@ -15,3 +15,5 @@
 
 ###**架构图：**
 ![](http://i.imgur.com/vc6iu0X.png)
+
+# @kongyunhui对该项目已经做了shiro完善，并且使用aop完成率更加高效的缓存机制。

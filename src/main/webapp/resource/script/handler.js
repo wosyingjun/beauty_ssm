@@ -5,13 +5,20 @@ var handler = {
     URL: {
         goodsBuy: function (goodsId) {
         	 // return '/beauty_ssm/goods/' + goodsId + '/buy';
-            return '/aaa/goods/' + goodsId + '/buy';
+            return handler.URL.getProjectUrl()+'/goods/' + goodsId + '/buy';
         },
         loginBtn:function(){
-        	return '/aaa/user/login';
+        	return handler.URL.getProjectUrl()+'/user/login';
         },
         logoutBtn:function(){
-        	return '/aaa/user/logout';
+        	return handler.URL.getProjectUrl()+'/user/logout';
+        },
+        //获取项目名字名字
+        getProjectUrl:function(){
+        	//获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+            var pathName = window.document.location.pathname;
+            var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+            return projectName;
         }
         
     },
@@ -53,7 +60,7 @@ var handler = {
             }
         }
     },
-
+    //购买东西
     goodsBuy: function (goodsId) {
         //执行购买请求
         $.post(handler.URL.goodsBuy(goodsId), {}, function (result) {
@@ -65,8 +72,8 @@ var handler = {
             }
             
         });
-
     },
+    //登陆
     loginBtn:function () {
     	 $.post(handler.URL.loginBtn(), {userPhone:$('#userPhone').val()}, function (result) {
              if (result && result['success']) {
@@ -78,6 +85,7 @@ var handler = {
              
          });
     },
+    //注销
     logoutBtn:function () {
    	 $.post(handler.URL.logoutBtn(), {}, function (result) {
             if (result && result['success']) {
@@ -89,6 +97,9 @@ var handler = {
             
         });
    },
-
+   //记住密码
+   RememberUser:function(){
+	   alert('自动登陆');
+   }
 
 }

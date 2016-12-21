@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@include file="common/tag.jsp"%>
+<%@include file="/WEB-INF/jsp/common/tag.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>用户列表</title>
-<%@include file="common/head.jsp"%>
+<%@include file="/WEB-INF/jsp/common/head.jsp"%>
 </head>
 <body>
-	<%@include file="common/nav.jsp"%>
+	<%@include file="/WEB-INF/jsp/common/nav.jsp"%>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-center">

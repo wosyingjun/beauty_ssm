@@ -35,11 +35,11 @@ public class UserController {
 		limit = limit == null ? 50 : limit;// 默认展示50条
 		List<User> list = userService.getUserList(offset, limit);
 		model.addAttribute("userlist", list);
-		return "userlist";
+		return "user/userlist";
 	}
 
 	/**
-	 * 用json数据接收和
+	 * 用json数据接收和返回
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = {
 			"application/json;charset=UTF-8" })

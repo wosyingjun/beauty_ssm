@@ -20,7 +20,8 @@ public enum ResultEnum {
 	SESSION_IS_OUT_TIME(99980003, "会话超时"),
 
 	// 用户相关异常
-	INVALID_USER(1001001, "无效用户");
+	INVALID_USER(1001001, "无效用户"),
+	INVALID_USER_IS_NULL(1001001,"用户没有登陆");
 
 	private int state;
 

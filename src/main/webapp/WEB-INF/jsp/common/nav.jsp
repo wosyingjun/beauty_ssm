@@ -3,18 +3,22 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">菜鸟教程</a>
+			<a class="navbar-brand" href="#">beauty_ssm</a>
 		</div>
 		<div>
 			<!--向左对齐-->
 			<ul class="nav navbar-nav navbar-left">
-				<li><a href="#">商品</a></li>
-				<li><a href="#">用户</a></li>
+				<li><a href="${pageContext.request.contextPath}/goods/list">商品</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/list">用户</a></li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
-				<button type="submit" class="btn btn-default">向左对齐-提交按钮</button>
-			</form>
-			<p class="navbar-text navbar-left">向左对齐-文本</p>
+			<div>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" size="40" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">搜索</button>
+				</form>
+			</div>
 			<!--向右对齐-->
 			<ul class="nav navbar-nav navbar-right">
 
@@ -29,14 +33,12 @@
 						data-toggle="dropdown"> ${user.userName} <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">jmeter</a></li>
-							<li><a href="#">EJB</a></li>
-							<li><a href="#">Jasper Report</a></li>
+							<li><a href="#">你购买的商品</a></li>
+							<li><a href="#">你的购物车</a></li>
+							<li><a href="#">我的足迹</a></li>
+							<li><a href="#">我的资料</a></li>
 							<li class="divider"></li>
-							<li><a href="#">分离的链接</a></li>
-							<li class="divider"></li>
-							<li><a
-								onclick="handler.logoutBtn();">推出</a></li>
+							<li><a onclick="handler.logoutBtn();">注销</a></li>
 						</ul></li>
 				</c:if>
 			</ul>

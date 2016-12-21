@@ -9,6 +9,7 @@ import java.io.Serializable;
  * @author yingjun
  *
  * ajax 请求的返回类型封装JSON结果
+ * 注解是为空的字段不显示
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseResult<T> implements Serializable {

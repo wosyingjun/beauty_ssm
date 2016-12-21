@@ -7,6 +7,7 @@
 <%@include file="common/head.jsp"%>
 </head>
 <body>
+	<%@include file="common/nav.jsp"%>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-center">
@@ -34,7 +35,6 @@
 						</c:forEach>
 					</tbody>
 				</table>
-
 			</div>
 		</div>
 	</div>

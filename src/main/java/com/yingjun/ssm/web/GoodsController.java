@@ -38,7 +38,7 @@ public class GoodsController {
         return "goodslist";
     }
 
-    @RequestMapping(value = "/{goodsId}/buy", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/{goodsId}/buy", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public BaseResult<Object> buy(@CookieValue(value = "userPhone", required = false) Long userPhone,
         /*@PathVariable("goodsId") Long goodsId*/ @Valid Goods goods, BindingResult result) {

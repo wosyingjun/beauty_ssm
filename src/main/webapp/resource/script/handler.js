@@ -4,8 +4,16 @@ var handler = {
     //封装相关ajax的url
     URL: {
         goodsBuy: function (goodsId) {
-            return '/beauty_ssm/goods/' + goodsId + '/buy';
+        	 // return '/beauty_ssm/goods/' + goodsId + '/buy';
+            return '/aaa/goods/' + goodsId + '/buy';
+        },
+        loginBtn:function(){
+        	return '/aaa/user/login';
+        },
+        logoutBtn:function(){
+        	return '/aaa/user/logout';
         }
+        
     },
     //验证手机号
     validatePhone: function (phone) {
@@ -59,6 +67,28 @@ var handler = {
         });
 
     },
+    loginBtn:function () {
+    	 $.post(handler.URL.loginBtn(), {userPhone:$('#userPhone').val()}, function (result) {
+             if (result && result['success']) {
+             	alert("登陆成功！");
+             	window.location.reload();
+             }else{
+             	alert(result['error']);
+             }
+             
+         });
+    },
+    logoutBtn:function () {
+   	 $.post(handler.URL.logoutBtn(), {}, function (result) {
+            if (result && result['success']) {
+            	alert("注销成功！");
+            	window.location.reload();
+            }else{
+            	alert(result['error']);
+            }
+            
+        });
+   },
 
 
 }

@@ -14,4 +14,5 @@
 - Sping Shiro权限控制（待完善）
 
 ###**架构图：**
+test github
 ![](http://i.imgur.com/vc6iu0X.png)

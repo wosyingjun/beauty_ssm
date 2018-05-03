@@ -91,7 +91,7 @@ public class GoodsServiceImpl implements GoodsService {
 				} else {
 					// 买卖成功
 					// 此时缓存中的数据不再是最新的，需要对缓存进行清理（具体的缓存策略还是要根据具体需求制定）
-					cache.deleteCacheWithPattern("getGoodsList*");
+					cache.deleteCacheWithPattern("cache|getGoodsList*");
 					LOG.info("delete cache with key: getGoodsList*");
 					return;
 				}

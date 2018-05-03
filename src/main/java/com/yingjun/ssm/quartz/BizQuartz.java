@@ -57,4 +57,8 @@ public class BizQuartz {
 		cache.clearCache();
 	}
 	
+	/*@Scheduled(cron = "0/3 * * * * ? ")
+	public void newTask(){
+	}*/
+	
 }

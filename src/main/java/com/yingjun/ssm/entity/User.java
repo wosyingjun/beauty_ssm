@@ -13,7 +13,7 @@ public class User {
 	private long userId;
 	
 	private String userName;
-	
+
 	private long userPhone;
 	
 	private Date createTime;

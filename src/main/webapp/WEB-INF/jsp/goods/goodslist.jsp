@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@include file="common/tag.jsp"%>
+<%@include file="/WEB-INF/jsp/common/tag.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>商品列表</title>
-<%@include file="common/head.jsp"%>
+<%@include file="/WEB-INF/jsp/common/head.jsp"%>
 </head>
 <body>
+	<%@include file="/WEB-INF/jsp/common/nav.jsp"%>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-center">
@@ -41,45 +42,13 @@
 			</div>
 		</div>
 	</div>
-
-
-	<%--登录弹出层 输入电话--%>
-	<div id="loginModal" class="modal fade">
-
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title text-center">
-						<span class="glyphicon glyphicon-phone"> </span>用户电话
-					</h3>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-xs-8 col-xs-offset-2">
-							<input type="text" name="userPhone" id="userPhone" placeholder="填写手机号" class="form-control">
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<%--验证信息--%>
-					<span id="userPhoneMessage" class="glyphicon"> </span>
-					<button type="button" id="loginBtn" class="btn btn-success">
-						<span class="glyphicon glyphicon-phone"></span>提交
-					</button>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-
 </body>
 <script src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.js"></script>
 <script src="<%=path%>/resource/script/handler.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function () {
 	//初始化业务逻辑script
-    handler.goods.init({});
+    handler.RememberUser();
 })
 </script>
 </html>

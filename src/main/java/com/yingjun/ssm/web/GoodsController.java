@@ -1,23 +1,26 @@
 package com.yingjun.ssm.web;
 
-import com.yingjun.ssm.dto.BaseResult;
-import com.yingjun.ssm.entity.Goods;
-import com.yingjun.ssm.enums.ResultEnum;
-import com.yingjun.ssm.exception.BizException;
-import com.yingjun.ssm.service.GoodsService;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.validation.Valid;
-import java.util.List;
+import com.yingjun.ssm.dto.BaseResult;
+import com.yingjun.ssm.entity.Goods;
+import com.yingjun.ssm.entity.User;
+import com.yingjun.ssm.enums.ResultEnum;
+import com.yingjun.ssm.exception.BizException;
+import com.yingjun.ssm.service.GoodsService;
 
 @Controller
 @RequestMapping("/goods")
@@ -35,16 +38,17 @@ public class GoodsController {
         limit = limit == null ? 50 : limit;//默认展示50条
         List<Goods> list = goodsService.getGoodsList(offset, limit);
         model.addAttribute("goodslist", list);
-        return "goodslist";
+        return "goods/goodslist";
     }
 
-    @RequestMapping(value = "/{goodsId}/buy", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/{goodsId}/buy", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public BaseResult<Object> buy(@CookieValue(value = "userPhone", required = false) Long userPhone,
+    public BaseResult<Object> buy(HttpSession session,
         /*@PathVariable("goodsId") Long goodsId*/ @Valid Goods goods, BindingResult result) {
-        LOG.info("invoke----------/" + goods.getGoodsId() + "/buy userPhone:" + userPhone);
-        if (userPhone == null) {
-            return new BaseResult<Object>(false, ResultEnum.INVALID_USER.getMsg());
+        LOG.info("invoke----------/" + goods.getGoodsId() + "/buy ");
+        User user=(User)session.getAttribute("user");
+        if (user == null) {
+            return new BaseResult<Object>(false, ResultEnum.INVALID_USER_IS_NULL.getMsg());
         }
         //Valid 参数验证(这里注释掉，采用AOP的方式验证,见BindingResultAop.java)
         //if (result.hasErrors()) {
@@ -52,7 +56,7 @@ public class GoodsController {
         //    return new BaseResult<Object>(false, errorInfo);
         //}
         try {
-            goodsService.buyGoods(userPhone, goods.getGoodsId(), false);
+            goodsService.buyGoods(user.getUserPhone(), goods.getGoodsId(), false);
         } catch (BizException e) {
             return new BaseResult<Object>(false, e.getMessage());
         } catch (Exception e) {
